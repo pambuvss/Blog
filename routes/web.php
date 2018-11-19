@@ -11,7 +11,12 @@
 |
 */
 
-Route::resource('posts','PostController');
+Route::group(['middleware' => ['auth', 'admin']], function(){
+	Route::resource('posts','PostController');
+});
+
+Route::get('/posts', 'PostController@index');
+Route::get('/posts/{post}', 'PostController@show');
 
 Route::get('/', function () {
     return view('welcome');

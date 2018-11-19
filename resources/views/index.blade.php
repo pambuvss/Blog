@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,7 +21,9 @@
       <tr>
         <th>ID</th>
         <th>Title</th>
+        @if (Auth::user() && Auth::user()->isAdmin())
         <th colspan="2">Action</th>
+        @endif
       </tr>
     </thead>
     <tbody>
@@ -28,6 +33,7 @@
         <td>{{$post['id']}}</td>
         <td><a href="{{action('PostController@show', $post['id'])}}">{{$post['title']}}</a></td>
         
+        @if (Auth::user() &&  Auth::user()->isAdmin())
         <td><a href="{{action('PostController@edit', $post['id'])}}" class="btn btn-warning">Edit</a></td>
         <td>
           <form action="{{action('PostController@destroy', $post['id'])}}" method="post">
@@ -37,6 +43,7 @@
           </form>
         </td>
       </tr>
+      @endif
       @endforeach
     </tbody>
   </table>
@@ -44,3 +51,4 @@
   </div>
   </body>
 </html>
+@endsection

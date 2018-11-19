@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laravel Blog</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -40,6 +40,12 @@
                 top: 18px;
             }
 
+            .top-left {
+                position: absolute;
+                left: 10px;
+                top: 18px;
+            }
+
             .content {
                 text-align: center;
             }
@@ -65,6 +71,9 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+                <div class="top-left links">
+                    <a href="posts">All posts</a>
+                </div>
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -81,16 +90,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    Laravel Blog
                 </div>
             </div>
         </div>
